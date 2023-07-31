@@ -31,7 +31,7 @@ namespace SlotGameMachine
             if (pictureBox != null)
             {
                 Random rand = new Random();
-                int randomNumber = rand.Next(0, 3);
+                int randomNumber = rand.Next(0, pictureBoxes.Length);
                 pictureBox.Image = imageArray[randomNumber];
             }
         }
@@ -51,10 +51,8 @@ namespace SlotGameMachine
                 switch (distinctCount)
                 {
                     case 1:
-                        Debug.WriteLine("1");
                         return 30;
                     case 2:
-                        Debug.WriteLine("2");
                         return 10;
                 }
             }
