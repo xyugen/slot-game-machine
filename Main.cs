@@ -5,30 +5,27 @@ namespace SlotGameMachine
 {
     public partial class Main : Form
     {
-        Image[] imageArray;
-        PictureBox[] pictureBoxes;
-        int score = 0;
-        int credit = 100;
+        // Fields
+        private Image[] imageArray;
+        private PictureBox[] pictureBoxes;
+        private int score = 0;
+        private int credit = 100;
 
         public Main()
         {
             InitializeComponent();
             btnSpin.Left = (this.ClientSize.Width - btnSpin.Width) / 2;
 
-            AddImagesToArray();
-            foreach (Image image in imageArray)
-            {
-                if (image != null)
-                    Debug.WriteLine(image.Width);
-            }
-            pictureBoxes = new PictureBox[3] { picSlot1, picSlot2, picSlot3 };
+            LoadImages();
+            pictureBoxes = new PictureBox[] { picSlot1, picSlot2, picSlot3 };
 
             UpdateLabels();
         }
 
-        private void AddImagesToArray()
+        // Helper methods
+        private void LoadImages()
         {
-            string[] imagePaths = getImagesFromFolder("assets/");
+            string[] imagePaths = GetImagesFromFolder("assets/");
             List<Image> imageList = new List<Image>();
 
             foreach (string imagePath in imagePaths)
@@ -39,7 +36,7 @@ namespace SlotGameMachine
             imageArray = imageList.ToArray();
         }
 
-        private static string[] getImagesFromFolder(string folderPath)
+        private static string[] GetImagesFromFolder(string folderPath)
         {
             string[] imageFiles = Directory.GetFiles(folderPath, "*.*", SearchOption.TopDirectoryOnly)
                 .Where(file => file.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
@@ -68,7 +65,6 @@ namespace SlotGameMachine
         {
             credit += CreditsWon();
             score += CreditsWon();
-
             UpdateResult();
         }
 
