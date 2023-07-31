@@ -48,6 +48,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.epName = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblStart = new System.Windows.Forms.Label();
+            this.ttHelp = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
@@ -205,7 +206,7 @@
             this.btnShowScores.Size = new System.Drawing.Size(38, 34);
             this.btnShowScores.TabIndex = 11;
             this.btnShowScores.Text = "?";
-            this.ttSpin.SetToolTip(this.btnShowScores, "Show scores");
+            this.ttHelp.SetToolTip(this.btnShowScores, "Show scores");
             this.btnShowScores.UseVisualStyleBackColor = true;
             this.btnShowScores.Click += new System.EventHandler(this.btnShowScores_Click);
             // 
@@ -273,6 +274,10 @@
             this.lblStart.Text = "Spin to play!";
             this.lblStart.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // ttHelp
+            // 
+            this.ttHelp.AutomaticDelay = 300;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -329,5 +334,6 @@
         private ErrorProvider epName;
         private Button btnShowScores;
         private Label lblStart;
+        private ToolTip ttHelp;
     }
 }
