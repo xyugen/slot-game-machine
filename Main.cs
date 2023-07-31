@@ -52,7 +52,7 @@ namespace SlotGameMachine
             if (pictureBox != null)
             {
                 Random rand = new Random();
-                int randomNumber = rand.Next(0, imageArray.Length);
+                int randomNumber = rand.Next(0, imageArray!.Length);
                 pictureBox.Image = imageArray[randomNumber];
             }
         }
@@ -103,6 +103,7 @@ namespace SlotGameMachine
         {
             if (credit >= creditAmount)
             {
+                lblCost.Text = $"-{creditAmount} Credits";
                 credit -= creditAmount;
                 int amountWon = 0;
                 for (int i = 0; i < spins; i++)
@@ -129,13 +130,11 @@ namespace SlotGameMachine
 
         private void BtnSpin_Click(object sender, EventArgs e)
         {
-            lblCost.Text = "-10 Credits";
             Spin(1, 10);
         }
 
         private void BtnSpin5x_Click(object sender, EventArgs e)
         {
-            lblCost.Text = "-40 Credits";
             Spin(5, 40);
         }
 
@@ -152,6 +151,80 @@ namespace SlotGameMachine
         {
             label.Left = (this.ClientSize.Width - label.Width) / 2;
         }
+
+        private void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            txtName.Text = txtName.Text.Trim();
+            if (!ValidateName())
+            {
+                return;
+            }
+
+            btnExit.Text = "Save";
+            txtName.Enabled = false;
+            btnSubmit.Enabled = false;
+        }
+
+        private bool ValidateName()
+        {
+            epName.Clear();
+
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                epName.SetError(txtName, "Name is required.");
+                return false;
+            }
+
+            if (txtName.Text.Length <= 3)
+            {
+                epName.SetError(txtName, "Name must be more than 3 characters.");
+                return false;
+            }
+
+            return true;
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            if (!btnSubmit.Enabled)
+            {
+                SaveScore();
+            }
+            Close();
+        }
+
+        private void SaveScore()
+        {
+            string folderPath = "output";
+            string filePath = Path.Combine(folderPath, "scores.txt");
+
+            if (!File.Exists(filePath))
+            {
+                try
+                {
+                    if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+                    using (FileStream fileStream = File.Create(filePath))
+                    {
+                        fileStream.Close();
+                    }
+                    MessageBox.Show("File created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error creating the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            try
+            {
+                File.AppendAllText(filePath, $"{txtName.Text}: {score}\n");
+                MessageBox.Show("Your score is added to the file!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding a new line to the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
     /// <summary>
@@ -159,7 +232,7 @@ namespace SlotGameMachine
     /// </summary>
     public class PictureBoxImageComparer : IEqualityComparer<PictureBox>
     {
-        public bool Equals(PictureBox x, PictureBox y)
+        public bool Equals(PictureBox? x, PictureBox? y)
         {
             // Compare images if both PictureBoxes have images
             if (x?.Image != null && y?.Image != null)

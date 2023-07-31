@@ -41,9 +41,15 @@
             this.lblCost = new System.Windows.Forms.Label();
             this.btnSpin5x = new System.Windows.Forms.Button();
             this.ttSpin = new System.Windows.Forms.ToolTip(this.components);
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.lblName = new System.Windows.Forms.Label();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.epName = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epName)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSpin
@@ -188,11 +194,67 @@
             // 
             this.ttSpin.ToolTipTitle = "Cost";
             // 
+            // txtName
+            // 
+            this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtName.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtName.Location = new System.Drawing.Point(284, 359);
+            this.txtName.Name = "txtName";
+            this.txtName.PlaceholderText = "GUEST";
+            this.txtName.Size = new System.Drawing.Size(248, 33);
+            this.txtName.TabIndex = 7;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSubmit.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSubmit.Location = new System.Drawing.Point(538, 359);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(97, 33);
+            this.btnSubmit.TabIndex = 8;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.BtnSubmit_Click);
+            // 
+            // lblName
+            // 
+            this.lblName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Montserrat Medium", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblName.Location = new System.Drawing.Point(196, 362);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(82, 29);
+            this.lblName.TabIndex = 9;
+            this.lblName.Text = "Name";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnExit.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnExit.Location = new System.Drawing.Point(362, 410);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 28);
+            this.btnExit.TabIndex = 10;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
+            // 
+            // epName
+            // 
+            this.epName.ContainerControl = this;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblCost);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.picSlot3);
@@ -211,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epName)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,5 +293,10 @@
         private Label lblCost;
         private Button btnSpin5x;
         private ToolTip ttSpin;
+        private TextBox txtName;
+        private Button btnSubmit;
+        private Label lblName;
+        private Button btnExit;
+        private ErrorProvider epName;
     }
 }
