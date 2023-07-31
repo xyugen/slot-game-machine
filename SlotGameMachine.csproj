@@ -11,10 +11,15 @@
   <ItemGroup>
     <None Remove="assets\balloon.png" />
     <None Remove="assets\banana.png" />
+    <None Remove="assets\cat.png" />
     <None Remove="assets\coin.png" />
+    <None Remove="assets\dog.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="assets\cat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\coin.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -25,6 +30,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\banana.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\dog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

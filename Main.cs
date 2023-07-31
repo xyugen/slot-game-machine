@@ -1,6 +1,3 @@
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-
 namespace SlotGameMachine
 {
     public partial class Main : Form
@@ -8,6 +5,7 @@ namespace SlotGameMachine
         // Fields
         private Image[]? imageArray;
         private readonly PictureBox[] pictureBoxes;
+        private static System.Windows.Forms.Timer costTimer = new();
         private int score = 0;
         private int credit = 100;
 
@@ -18,6 +16,10 @@ namespace SlotGameMachine
 
             LoadImages();
             pictureBoxes = new PictureBox[] { picSlot1, picSlot2, picSlot3 };
+
+            // Timer
+            costTimer.Interval = 500;
+            costTimer.Tick += new EventHandler(CostTimer_Tick);
 
             UpdateLabels();
         }
@@ -117,7 +119,18 @@ namespace SlotGameMachine
                 lblResult.Text = "You don't have enough credits!";
                 CenterLabel(lblResult);
             }
-            Debug.WriteLine(this.ClientSize.Width + " and " + this.ClientSize.Height);
+
+            lblCost.Visible = true;
+            costTimer.Start();
+        }
+
+        private void CostTimer_Tick(object? sender, EventArgs e)
+        {
+            costTimer.Stop();
+            if (!costTimer.Enabled)
+            {
+                lblCost.Visible = false;
+            }
         }
 
         private void CenterLabel(Label label)

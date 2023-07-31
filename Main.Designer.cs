@@ -37,6 +37,7 @@
             this.picSlot2 = new System.Windows.Forms.PictureBox();
             this.picSlot3 = new System.Windows.Forms.PictureBox();
             this.lblResult = new System.Windows.Forms.Label();
+            this.lblCost = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
@@ -51,7 +52,7 @@
             this.btnSpin.FlatAppearance.BorderSize = 0;
             this.btnSpin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSpin.Font = new System.Drawing.Font("Montserrat SemiBold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSpin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.btnSpin.ForeColor = System.Drawing.Color.Yellow;
             this.btnSpin.Location = new System.Drawing.Point(340, 259);
             this.btnSpin.Name = "btnSpin";
             this.btnSpin.Size = new System.Drawing.Size(115, 45);
@@ -147,11 +148,25 @@
             this.lblResult.TabIndex = 5;
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // lblCost
+            // 
+            this.lblCost.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lblCost.AutoSize = true;
+            this.lblCost.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCost.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.lblCost.Location = new System.Drawing.Point(350, 307);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(94, 22);
+            this.lblCost.TabIndex = 6;
+            this.lblCost.Text = "-10 Credits";
+            this.lblCost.Visible = false;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblCost);
             this.Controls.Add(this.lblResult);
             this.Controls.Add(this.picSlot3);
             this.Controls.Add(this.picSlot2);
@@ -184,5 +199,6 @@
         private PictureBox picSlot2;
         private PictureBox picSlot3;
         private Label lblResult;
+        private Label lblCost;
     }
 }
