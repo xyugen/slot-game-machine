@@ -11,6 +11,7 @@ Slot Game Machine is a C# WinForms application that simulates a slot machine gam
 - User's credit balance is displayed on the screen.
 - User's total score is displayed on the screen.
 - User can view the high scores by clicking the "Show Scores" button.
+- Users can add new items to the slot machine by placing PNG images in the `assets/slot_machine_items/` folder.
 
 ## Screenshots
 
@@ -35,6 +36,20 @@ Slot Game Machine is a C# WinForms application that simulates a slot machine gam
 4. Your credit balance and score will be updated accordingly.
 5. Click the "Show Scores" button to view the high scores.
 
+## How to Add Slot Machine Items
+
+If you want to add to the slot machine, follow these steps.
+
+1. Prepare your item images in PNG format.
+2. Copy the PNG images to the `assets/slot_machine_items/` folder in the project directory.
+3. Make sure the image filenames are unique and descriptive, e.g., `banana.png`, `balloon.png`, `coin.png`, etc.
+
+The application will automatically load an use these new images as slot machine items during the game.
+The new items will appear on the reels along with the existing ones, adding variety and excitement to the gameplay.
+
+Please note that the slot machine items' images should at least approximately have the same dimensions
+as the existing ones to ensure a visually consistent user experience.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
@@ -45,7 +60,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) 
 
 ## Credits
 
-Developed by [Renz Arias](https://www.github.com/xyugen/).
+Developed by [xYugen](https://www.github.com/xyugen/).
 
 ## Bugs and Issues
 
