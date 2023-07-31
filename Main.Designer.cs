@@ -36,6 +36,7 @@
             this.picSlot1 = new System.Windows.Forms.PictureBox();
             this.picSlot2 = new System.Windows.Forms.PictureBox();
             this.picSlot3 = new System.Windows.Forms.PictureBox();
+            this.lblResult = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
@@ -133,11 +134,24 @@
             this.picSlot3.TabIndex = 4;
             this.picSlot3.TabStop = false;
             // 
+            // lblResult
+            // 
+            this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblResult.Location = new System.Drawing.Point(398, 21);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(0, 37);
+            this.lblResult.TabIndex = 5;
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblResult);
             this.Controls.Add(this.picSlot3);
             this.Controls.Add(this.picSlot2);
             this.Controls.Add(this.picSlot1);
@@ -166,5 +180,6 @@
         private PictureBox picSlot1;
         private PictureBox picSlot2;
         private PictureBox picSlot3;
+        private Label lblResult;
     }
 }
