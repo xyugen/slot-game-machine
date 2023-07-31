@@ -15,7 +15,7 @@ namespace SlotGameMachine
             InitializeComponent();
             btnSpin.Left = (this.ClientSize.Width - btnSpin.Width) / 2;
 
-            addImagesToArray();
+            AddImagesToArray();
             foreach (Image image in imageArray)
             {
                 if (image != null)
@@ -23,10 +23,10 @@ namespace SlotGameMachine
             }
             pictureBoxes = new PictureBox[3] { picSlot1, picSlot2, picSlot3 };
 
-            updateLabels();
+            UpdateLabels();
         }
 
-        private void addImagesToArray()
+        private void AddImagesToArray()
         {
             string[] imagePaths = getImagesFromFolder("assets/");
             List<Image> imageList = new List<Image>();
@@ -39,7 +39,7 @@ namespace SlotGameMachine
             imageArray = imageList.ToArray();
         }
 
-        private string[] getImagesFromFolder(string folderPath)
+        private static string[] getImagesFromFolder(string folderPath)
         {
             string[] imageFiles = Directory.GetFiles(folderPath, "*.*", SearchOption.TopDirectoryOnly)
                 .Where(file => file.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
@@ -48,7 +48,7 @@ namespace SlotGameMachine
             return imageFiles;
         }
 
-        private void setPictureBoxImage(PictureBox pictureBox)
+        private void SetPictureBoxImage(PictureBox pictureBox)
         {
             if (pictureBox != null)
             {
@@ -58,23 +58,23 @@ namespace SlotGameMachine
             }
         }
 
-        private void updateLabels()
+        private void UpdateLabels()
         {
             lblScoreValue.Text = score.ToString();
             lblCreditValue.Text = credit.ToString();
         }
 
-        private void updateValues()
+        private void UpdateValues()
         {
-            credit += creditsWon();
-            score += creditsWon();
+            credit += CreditsWon();
+            score += CreditsWon();
 
-            updateResult();
+            UpdateResult();
         }
 
-        private void updateResult()
+        private void UpdateResult()
         {
-            int amount = creditsWon();
+            int amount = CreditsWon();
             if (amount > 0)
             {
                 lblResult.Text = $"You won {amount} credits!";
@@ -83,10 +83,10 @@ namespace SlotGameMachine
             {
                 lblResult.Text = "You lost 10 credits.";
             }
-            centerLabel(lblResult);
+            CenterLabel(lblResult);
         }
 
-        private int creditsWon()
+        private int CreditsWon()
         {
             if (pictureBoxes != null)
             {
@@ -103,27 +103,27 @@ namespace SlotGameMachine
             return 0;
         }
 
-        private void btnSpin_Click(object sender, EventArgs e)
+        private void BtnSpin_Click(object sender, EventArgs e)
         {
             if (credit > 0)
             {
                 credit -= 10;
                 foreach (PictureBox pictureBox in pictureBoxes)
                 {
-                    setPictureBoxImage(pictureBox);
+                    SetPictureBoxImage(pictureBox);
                 }
 
-                updateValues();
-                updateLabels();
+                UpdateValues();
+                UpdateLabels();
             }
             else
             {
                 lblResult.Text = "You don't have enough credits!";
-                centerLabel(lblResult);
+                CenterLabel(lblResult);
             }
         }
 
-        private void centerLabel(Label label)
+        private void CenterLabel(Label label)
         {
             label.Left = (this.ClientSize.Width - label.Width) / 2;
         }

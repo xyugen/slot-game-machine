@@ -59,7 +59,7 @@
             this.btnSpin.TabIndex = 0;
             this.btnSpin.Text = "Spin";
             this.btnSpin.UseVisualStyleBackColor = false;
-            this.btnSpin.Click += new System.EventHandler(this.btnSpin_Click);
+            this.btnSpin.Click += new System.EventHandler(this.BtnSpin_Click);
             // 
             // lblScore
             // 
