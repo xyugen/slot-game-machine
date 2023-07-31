@@ -11,6 +11,8 @@ namespace SlotGameMachine
         private int score = 0;
         private int credit = 100;
 
+        const string SCORES_FILENAME = "scores.txt";
+
         public Main()
         {
             InitializeComponent();
@@ -204,7 +206,7 @@ namespace SlotGameMachine
         private void SaveScore()
         {
             string folderPath = "output";
-            string filePath = Path.Combine(folderPath, "scores.txt");
+            string filePath = Path.Combine(folderPath, SCORES_FILENAME);
 
             if (!File.Exists(filePath))
             {
@@ -241,7 +243,7 @@ namespace SlotGameMachine
 
         private void btnShowScores_Click(object sender, EventArgs e)
         {
-            string filePath = "output/scores.txt";
+            string filePath = $"output/{SCORES_FILENAME}";
             if (File.Exists(filePath))
             {
                 string text = File.ReadAllText(filePath);
