@@ -6,8 +6,8 @@ namespace SlotGameMachine
     public partial class Main : Form
     {
         // Fields
-        private Image[]? imageArray;
-        private readonly PictureBox[] pictureBoxes;
+        private Image[] imageArray;
+        private PictureBox[] pictureBoxes;
         private int score = 0;
         private int credit = 100;
 
@@ -26,7 +26,7 @@ namespace SlotGameMachine
         private void LoadImages()
         {
             string[] imagePaths = GetImagesFromFolder("assets/");
-            List<Image> imageList = new();
+            List<Image> imageList = new List<Image>();
 
             foreach (string imagePath in imagePaths)
             {
@@ -49,8 +49,8 @@ namespace SlotGameMachine
         {
             if (pictureBox != null)
             {
-                Random rand = new();
-                int randomNumber = rand.Next(0, imageArray!.Length);
+                Random rand = new Random();
+                int randomNumber = rand.Next(0, imageArray.Length);
                 pictureBox.Image = imageArray[randomNumber];
             }
         }
@@ -130,7 +130,7 @@ namespace SlotGameMachine
     /// </summary>
     public class PictureBoxImageComparer : IEqualityComparer<PictureBox>
     {
-        public bool Equals(PictureBox? x, PictureBox? y)
+        public bool Equals(PictureBox x, PictureBox y)
         {
             // Compare images if both PictureBoxes have images
             if (x?.Image != null && y?.Image != null)
