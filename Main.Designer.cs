@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSpin = new System.Windows.Forms.Button();
             this.lblScore = new System.Windows.Forms.Label();
             this.lblScoreValue = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this.picSlot3 = new System.Windows.Forms.PictureBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.lblCost = new System.Windows.Forms.Label();
+            this.btnSpin5x = new System.Windows.Forms.Button();
+            this.ttSpin = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
@@ -58,6 +61,7 @@
             this.btnSpin.Size = new System.Drawing.Size(115, 45);
             this.btnSpin.TabIndex = 0;
             this.btnSpin.Text = "Spin";
+            this.ttSpin.SetToolTip(this.btnSpin, "10 Credits");
             this.btnSpin.UseVisualStyleBackColor = false;
             this.btnSpin.Click += new System.EventHandler(this.BtnSpin_Click);
             // 
@@ -161,6 +165,29 @@
             this.lblCost.Text = "-10 Credits";
             this.lblCost.Visible = false;
             // 
+            // btnSpin5x
+            // 
+            this.btnSpin5x.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSpin5x.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(172)))), ((int)(((byte)(61)))));
+            this.btnSpin5x.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSpin5x.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSpin5x.FlatAppearance.BorderSize = 0;
+            this.btnSpin5x.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSpin5x.Font = new System.Drawing.Font("Montserrat", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSpin5x.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnSpin5x.Location = new System.Drawing.Point(461, 259);
+            this.btnSpin5x.Name = "btnSpin5x";
+            this.btnSpin5x.Size = new System.Drawing.Size(50, 45);
+            this.btnSpin5x.TabIndex = 0;
+            this.btnSpin5x.Text = "5x";
+            this.ttSpin.SetToolTip(this.btnSpin5x, "40 Credits");
+            this.btnSpin5x.UseVisualStyleBackColor = false;
+            this.btnSpin5x.Click += new System.EventHandler(this.BtnSpin5x_Click);
+            // 
+            // ttSpin
+            // 
+            this.ttSpin.ToolTipTitle = "Cost";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -175,6 +202,7 @@
             this.Controls.Add(this.lblCreditValue);
             this.Controls.Add(this.lblScoreValue);
             this.Controls.Add(this.lblScore);
+            this.Controls.Add(this.btnSpin5x);
             this.Controls.Add(this.btnSpin);
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.MinimumSize = new System.Drawing.Size(530, 430);
@@ -200,5 +228,7 @@
         private PictureBox picSlot3;
         private Label lblResult;
         private Label lblCost;
+        private Button btnSpin5x;
+        private ToolTip ttSpin;
     }
 }

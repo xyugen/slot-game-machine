@@ -67,19 +67,17 @@ namespace SlotGameMachine
         {
             credit += CreditsWon();
             score += CreditsWon();
-            UpdateResult();
         }
 
-        private void UpdateResult()
+        private void UpdateResult(int amount, int creditCost)
         {
-            int amount = CreditsWon();
             if (amount > 0)
             {
                 lblResult.Text = $"You won {amount} credits!";
             }
             else
             {
-                lblResult.Text = "You lost 10 credits.";
+                lblResult.Text = $"You lost {creditCost} credits.";
             }
             CenterLabel(lblResult);
         }
@@ -101,27 +99,44 @@ namespace SlotGameMachine
             return 0;
         }
 
-        private void BtnSpin_Click(object sender, EventArgs e)
+        private void Spin(int spins, int creditAmount)
         {
-            if (credit > 0)
+            if (credit >= creditAmount)
             {
-                credit -= 10;
-                foreach (PictureBox pictureBox in pictureBoxes)
+                credit -= creditAmount;
+                int amountWon = 0;
+                for (int i = 0; i < spins; i++)
                 {
-                    SetPictureBoxImage(pictureBox);
-                }
+                    foreach (PictureBox pictureBox in pictureBoxes)
+                    {
+                        SetPictureBoxImage(pictureBox);
+                    }
+                    amountWon += CreditsWon();
 
-                UpdateValues();
-                UpdateLabels();
+                    UpdateValues();
+                    UpdateResult(amountWon, creditAmount);
+                    UpdateLabels();
+                }
+                lblCost.Visible = true;
+                costTimer.Start();
             }
             else
             {
                 lblResult.Text = "You don't have enough credits!";
                 CenterLabel(lblResult);
             }
+        }
 
-            lblCost.Visible = true;
-            costTimer.Start();
+        private void BtnSpin_Click(object sender, EventArgs e)
+        {
+            lblCost.Text = "-10 Credits";
+            Spin(1, 10);
+        }
+
+        private void BtnSpin5x_Click(object sender, EventArgs e)
+        {
+            lblCost.Text = "-40 Credits";
+            Spin(5, 40);
         }
 
         private void CostTimer_Tick(object? sender, EventArgs e)
