@@ -13,8 +13,14 @@ using System.Windows.Forms;
 
 namespace SlotGameMachine
 {
+    /// <summary>
+    /// Custom MessageBox form for displaying custom messages.
+    /// </summary>
     public partial class cMessBox : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="cMessBox"/> class.
+        /// </summary>
         public cMessBox()
         {
             InitializeComponent();
@@ -27,6 +33,11 @@ namespace SlotGameMachine
             btnConfirm.Left = (this.ClientSize.Width - btnConfirm.Width) / 2;
         }
 
+        /// <summary>
+        /// Displays the custom MessageBox dialog with the specified title and icon.
+        /// </summary>
+        /// <param name="title">The title of the dialog.</param>
+        /// <param name="icon">The icon to be displayed in the dialog.</param>
         public void ShowDialog(string title, Icon icon)
         {
             this.Text = title;
@@ -35,15 +46,20 @@ namespace SlotGameMachine
             ShowDialog();
         }
 
+        /// <summary>
+        /// Handles the "Confirm" button click event and closes the dialog.
+        /// </summary>
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the LinkLabel LinkClicked event and opens the specified URL in the default browser.
+        /// </summary>
         private void LnkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             string url = "https://www.github.com/xyugen/";
-
 
             try
             {

@@ -2,17 +2,22 @@ using System.Diagnostics;
 
 namespace SlotGameMachine
 {
+    /// <summary>
+    /// The main form of the Slot Game Machine application.
+    /// </summary>
     public partial class Main : Form
     {
-        // Fields
         private Image[]? imageArray;
         private readonly PictureBox[] pictureBoxes;
-        private static System.Windows.Forms.Timer costTimer = new();
+        private static readonly System.Windows.Forms.Timer costTimer = new();
         private int score = 0;
         private int credit = 100;
 
-        const string SCORES_FILENAME = "scores.txt";
+        private const string SCORES_FILENAME = "scores.txt";
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Main"/> class.
+        /// </summary>
         public Main()
         {
             InitializeComponent();
@@ -29,6 +34,10 @@ namespace SlotGameMachine
         }
 
         // Helper methods
+
+        /// <summary>
+        /// Loads images from the "assets/slot_machine_items/" folder.
+        /// </summary>
         private void LoadImages()
         {
             string[] imagePaths = GetImagesFromFolder("assets/slot_machine_items/");
@@ -42,6 +51,9 @@ namespace SlotGameMachine
             imageArray = imageList.ToArray();
         }
 
+        /// <summary>
+        /// Retrieves image file paths from the specified folder path.
+        /// </summary>
         private static string[] GetImagesFromFolder(string folderPath)
         {
             string[] imageFiles = Directory.GetFiles(folderPath, "*.*", SearchOption.TopDirectoryOnly)
@@ -51,6 +63,9 @@ namespace SlotGameMachine
             return imageFiles;
         }
 
+        /// <summary>
+        /// Sets the image for the specified PictureBox.
+        /// </summary>
         private void SetPictureBoxImage(PictureBox pictureBox)
         {
             if (pictureBox != null)
@@ -61,18 +76,27 @@ namespace SlotGameMachine
             }
         }
 
+        /// <summary>
+        /// Updates the text of score and credit labels.
+        /// </summary>
         private void UpdateLabels()
         {
             lblScoreValue.Text = score.ToString();
             lblCreditValue.Text = credit.ToString();
         }
 
+        /// <summary>
+        /// Updates the credit and score values.
+        /// </summary>
         private void UpdateValues()
         {
             credit += CreditsWon();
             score += CreditsWon();
         }
 
+        /// <summary>
+        /// Updates the result label based on the amount and credit cost.
+        /// </summary>
         private void UpdateResult(int amount, int creditCost)
         {
             if (amount > 0)
@@ -86,6 +110,9 @@ namespace SlotGameMachine
             CenterLabel(lblResult);
         }
 
+        /// <summary>
+        /// Calculates the number of credits won based on the unique images in the PictureBoxes.
+        /// </summary>
         private int CreditsWon()
         {
             if (pictureBoxes != null)
@@ -103,6 +130,9 @@ namespace SlotGameMachine
             return 0;
         }
 
+        /// <summary>
+        /// Performs a single spin with the specified number of spins and credit amount.
+        /// </summary>
         private void Spin(int spins, int creditAmount)
         {
             if (lblStart.Visible)
@@ -137,16 +167,25 @@ namespace SlotGameMachine
             }
         }
 
+        /// <summary>
+        /// Handles the "Spin" button click event for a single spin.
+        /// </summary>
         private void BtnSpin_Click(object sender, EventArgs e)
         {
             Spin(1, 10);
         }
 
+        /// <summary>
+        /// Handles the "Spin 5x" button click event for spinning five times.
+        /// </summary>
         private void BtnSpin5x_Click(object sender, EventArgs e)
         {
             Spin(5, 40);
         }
 
+        /// <summary>
+        /// Handles the <see cref="System.Windows.Forms.Timer.Tick"/> event for the cost timer.
+        /// </summary>
         private void CostTimer_Tick(object? sender, EventArgs e)
         {
             costTimer.Stop();
@@ -156,11 +195,17 @@ namespace SlotGameMachine
             }
         }
 
+        /// <summary>
+        /// Centers the specified label on the form.
+        /// </summary>
         private void CenterLabel(Label label)
         {
             label.Left = (this.ClientSize.Width - label.Width) / 2;
         }
 
+        /// <summary>
+        /// Handles the "Submit" button click event to validate and disable name input.
+        /// </summary>
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
             txtName.Text = txtName.Text.Trim();
@@ -175,6 +220,10 @@ namespace SlotGameMachine
             Debug.WriteLine(this.ClientSize.Width.ToString());
         }
 
+        /// <summary>
+        /// Validates the input name and displays error provider messages if necessary.
+        /// </summary>
+        /// <returns><c>true</c> if the name is valid; otherwise, <c>false</c>.</returns>
         private bool ValidateName()
         {
             epName.Clear();
@@ -194,6 +243,9 @@ namespace SlotGameMachine
             return true;
         }
 
+        /// <summary>
+        /// Handles the "Exit" button click event to save the score and close the form.
+        /// </summary>
         private void BtnExit_Click(object sender, EventArgs e)
         {
             if (!btnSubmit.Enabled)
@@ -203,6 +255,9 @@ namespace SlotGameMachine
             Close();
         }
 
+        /// <summary>
+        /// Saves the player's score to the scores file.
+        /// </summary>
         private void SaveScore()
         {
             string folderPath = "output";
@@ -224,6 +279,9 @@ namespace SlotGameMachine
             }
         }
 
+        /// <summary>
+        /// Creates the scores file in the specified folder path.
+        /// </summary>
         private static void CreateScoresFile(string folderPath, string filePath)
         {
             try
@@ -240,6 +298,9 @@ namespace SlotGameMachine
             }
         }
 
+        /// <summary>
+        /// Handles the "Show Scores" button click event to display the scores to the user.
+        /// </summary>
         private void btnShowScores_Click(object sender, EventArgs e)
         {
             string filePath = $"output/{SCORES_FILENAME}";
@@ -257,6 +318,9 @@ namespace SlotGameMachine
             }
         }
 
+        /// <summary>
+        /// Handles the "Show Author" button click event to display the author information.
+        /// </summary>
         private void btnShowAuthor(object sender, EventArgs e)
         {
             cMessBox authorMessageBox = new();
