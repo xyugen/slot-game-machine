@@ -15,15 +15,37 @@ namespace SlotGameMachine
             InitializeComponent();
             btnSpin.Left = (this.ClientSize.Width - btnSpin.Width) / 2;
 
-            imageArray = new Image[3]
+            addImagesToArray();
+            foreach (Image image in imageArray)
             {
-                Image.FromFile("assets/banana.png"),
-                Image.FromFile("assets/balloon.png"),
-                Image.FromFile("assets/coin.png")
-            };
+                if (image != null)
+                    Debug.WriteLine(image.Width);
+            }
             pictureBoxes = new PictureBox[3] { picSlot1, picSlot2, picSlot3 };
 
             updateLabels();
+        }
+
+        private void addImagesToArray()
+        {
+            string[] imagePaths = getImagesFromFolder("assets/");
+            List<Image> imageList = new List<Image>();
+
+            foreach (string imagePath in imagePaths)
+            {
+                imageList.Add(Image.FromFile(imagePath));
+            }
+
+            imageArray = imageList.ToArray();
+        }
+
+        private string[] getImagesFromFolder(string folderPath)
+        {
+            string[] imageFiles = Directory.GetFiles(folderPath, "*.*", SearchOption.TopDirectoryOnly)
+                .Where(file => file.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+                .ToArray();
+
+            return imageFiles;
         }
 
         private void setPictureBoxImage(PictureBox pictureBox)
@@ -31,7 +53,7 @@ namespace SlotGameMachine
             if (pictureBox != null)
             {
                 Random rand = new Random();
-                int randomNumber = rand.Next(0, pictureBoxes.Length);
+                int randomNumber = rand.Next(0, imageArray.Length);
                 pictureBox.Image = imageArray[randomNumber];
             }
         }
