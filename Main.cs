@@ -216,7 +216,7 @@ namespace SlotGameMachine
             try
             {
                 File.AppendAllText(filePath, $"{txtName.Text}: {score}\n");
-                MessageBox.Show("Your score is added to the file!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Your score has been saved.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -233,7 +233,6 @@ namespace SlotGameMachine
                 {
                     fileStream.Close();
                 }
-                MessageBox.Show("File created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -247,7 +246,10 @@ namespace SlotGameMachine
             if (File.Exists(filePath))
             {
                 string text = File.ReadAllText(filePath);
-                MessageBox.Show($"{text}", "Scores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (text.Trim().Length <= 0)
+                    MessageBox.Show("There are no scores yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show($"{text}", "Scores", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
