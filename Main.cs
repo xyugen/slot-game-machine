@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace SlotGameMachine
 {
     public partial class Main : Form
@@ -163,6 +165,7 @@ namespace SlotGameMachine
             btnExit.Text = "Save";
             txtName.Enabled = false;
             btnSubmit.Enabled = false;
+            Debug.WriteLine(this.ClientSize.Width.ToString());
         }
 
         private bool ValidateName()
@@ -228,6 +231,20 @@ namespace SlotGameMachine
             catch (Exception ex)
             {
                 MessageBox.Show($"Error creating the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnShowScores_Click(object sender, EventArgs e)
+        {
+            string filePath = "output/scores.txt";
+            if (File.Exists(filePath))
+            {
+                string text = File.ReadAllText(filePath);
+                MessageBox.Show($"{text}", "Scores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("There are no scores yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

@@ -46,6 +46,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.epName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnShowScores = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
@@ -208,7 +209,7 @@
             // 
             this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSubmit.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSubmit.Location = new System.Drawing.Point(538, 359);
+            this.btnSubmit.Location = new System.Drawing.Point(557, 359);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(97, 33);
             this.btnSubmit.TabIndex = 8;
@@ -246,11 +247,25 @@
             // 
             this.epName.ContainerControl = this;
             // 
+            // btnShowScores
+            // 
+            this.btnShowScores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowScores.Font = new System.Drawing.Font("Montserrat SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnShowScores.Location = new System.Drawing.Point(750, 410);
+            this.btnShowScores.Name = "btnShowScores";
+            this.btnShowScores.Size = new System.Drawing.Size(38, 34);
+            this.btnShowScores.TabIndex = 11;
+            this.btnShowScores.Text = "?";
+            this.ttSpin.SetToolTip(this.btnShowScores, "Show scores");
+            this.btnShowScores.UseVisualStyleBackColor = true;
+            this.btnShowScores.Click += new System.EventHandler(this.btnShowScores_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnShowScores);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnSubmit);
@@ -267,7 +282,7 @@
             this.Controls.Add(this.btnSpin5x);
             this.Controls.Add(this.btnSpin);
             this.MaximumSize = new System.Drawing.Size(816, 489);
-            this.MinimumSize = new System.Drawing.Size(530, 430);
+            this.MinimumSize = new System.Drawing.Size(625, 430);
             this.Name = "Main";
             this.Text = "Slot Game Machine";
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).EndInit();
@@ -298,5 +313,6 @@
         private Label lblName;
         private Button btnExit;
         private ErrorProvider epName;
+        private Button btnShowScores;
     }
 }
