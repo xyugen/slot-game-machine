@@ -200,19 +200,7 @@ namespace SlotGameMachine
 
             if (!File.Exists(filePath))
             {
-                try
-                {
-                    if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
-                    using (FileStream fileStream = File.Create(filePath))
-                    {
-                        fileStream.Close();
-                    }
-                    MessageBox.Show("File created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error creating the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                CreateScoresFile(folderPath, filePath);
             }
 
             try
@@ -223,6 +211,23 @@ namespace SlotGameMachine
             catch (Exception ex)
             {
                 MessageBox.Show($"Error adding a new line to the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private static void CreateScoresFile(string folderPath, string filePath)
+        {
+            try
+            {
+                if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
+                using (FileStream fileStream = File.Create(filePath))
+                {
+                    fileStream.Close();
+                }
+                MessageBox.Show("File created successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error creating the file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
