@@ -9,32 +9,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\appIcon.ico" />
     <None Remove="assets\balloon.png" />
     <None Remove="assets\banana.png" />
     <None Remove="assets\cat.png" />
     <None Remove="assets\coin.png" />
     <None Remove="assets\dog.png" />
+    <None Remove="assets\slot_machine_items\balloon.png" />
+    <None Remove="assets\slot_machine_items\banana.png" />
+    <None Remove="assets\slot_machine_items\cat.png" />
+    <None Remove="assets\slot_machine_items\coin.png" />
+    <None Remove="assets\slot_machine_items\dog.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="assets\cat.png">
+    <Content Include="assets\slot_machine_items\balloon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\coin.png">
+    <Content Include="assets\slot_machine_items\banana.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\slot_machine_items\cat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\slot_machine_items\coin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\slot_machine_items\dog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="assets\balloon.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\banana.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\dog.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Resource Include="assets\appIcon.ico" />
   </ItemGroup>
 
   <ItemGroup>

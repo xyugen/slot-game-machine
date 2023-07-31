@@ -31,7 +31,7 @@ namespace SlotGameMachine
         // Helper methods
         private void LoadImages()
         {
-            string[] imagePaths = GetImagesFromFolder("assets/");
+            string[] imagePaths = GetImagesFromFolder("assets/slot_machine_items/");
             List<Image> imageList = new List<Image>();
 
             foreach (string imagePath in imagePaths)
