@@ -42,6 +42,28 @@ namespace SlotGameMachine
             lblCreditValue.Text = credit.ToString();
         }
 
+        private void updateValues()
+        {
+            credit += creditsWon();
+            score += creditsWon();
+
+            updateResult();
+        }
+
+        private void updateResult()
+        {
+            int amount = creditsWon();
+            if (amount > 0)
+            {
+                lblResult.Text = $"You won {amount} credits!";
+            }
+            else
+            {
+                lblResult.Text = "You lost 10 credits.";
+            }
+            centerLabel(lblResult);
+        }
+
         private int creditsWon()
         {
             if (pictureBoxes != null)
@@ -69,9 +91,7 @@ namespace SlotGameMachine
                     setPictureBoxImage(pictureBox);
                 }
 
-                credit += creditsWon();
-                score += creditsWon();
-
+                updateValues();
                 updateLabels();
             }
             else
