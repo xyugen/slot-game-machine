@@ -103,6 +103,11 @@ namespace SlotGameMachine
 
         private void Spin(int spins, int creditAmount)
         {
+            if (lblStart.Visible)
+            {
+                lblStart.Visible = false;
+            }
+
             if (credit >= creditAmount)
             {
                 lblCost.Text = $"-{creditAmount} Credits";

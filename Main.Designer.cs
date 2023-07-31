@@ -41,12 +41,13 @@
             this.lblCost = new System.Windows.Forms.Label();
             this.btnSpin5x = new System.Windows.Forms.Button();
             this.ttSpin = new System.Windows.Forms.ToolTip(this.components);
+            this.btnShowScores = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.epName = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnShowScores = new System.Windows.Forms.Button();
+            this.lblStart = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
@@ -195,6 +196,19 @@
             // 
             this.ttSpin.ToolTipTitle = "Cost";
             // 
+            // btnShowScores
+            // 
+            this.btnShowScores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowScores.Font = new System.Drawing.Font("Montserrat SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnShowScores.Location = new System.Drawing.Point(750, 410);
+            this.btnShowScores.Name = "btnShowScores";
+            this.btnShowScores.Size = new System.Drawing.Size(38, 34);
+            this.btnShowScores.TabIndex = 11;
+            this.btnShowScores.Text = "?";
+            this.ttSpin.SetToolTip(this.btnShowScores, "Show scores");
+            this.btnShowScores.UseVisualStyleBackColor = true;
+            this.btnShowScores.Click += new System.EventHandler(this.btnShowScores_Click);
+            // 
             // txtName
             // 
             this.txtName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -247,24 +261,24 @@
             // 
             this.epName.ContainerControl = this;
             // 
-            // btnShowScores
+            // lblStart
             // 
-            this.btnShowScores.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnShowScores.Font = new System.Drawing.Font("Montserrat SemiBold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnShowScores.Location = new System.Drawing.Point(750, 410);
-            this.btnShowScores.Name = "btnShowScores";
-            this.btnShowScores.Size = new System.Drawing.Size(38, 34);
-            this.btnShowScores.TabIndex = 11;
-            this.btnShowScores.Text = "?";
-            this.ttSpin.SetToolTip(this.btnShowScores, "Show scores");
-            this.btnShowScores.UseVisualStyleBackColor = true;
-            this.btnShowScores.Click += new System.EventHandler(this.btnShowScores_Click);
+            this.lblStart.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblStart.AutoSize = true;
+            this.lblStart.Font = new System.Drawing.Font("Montserrat", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblStart.Location = new System.Drawing.Point(231, 95);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(338, 66);
+            this.lblStart.TabIndex = 12;
+            this.lblStart.Text = "Spin to play!";
+            this.lblStart.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblStart);
             this.Controls.Add(this.btnShowScores);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblName);
@@ -314,5 +328,6 @@
         private Button btnExit;
         private ErrorProvider epName;
         private Button btnShowScores;
+        private Label lblStart;
     }
 }
