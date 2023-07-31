@@ -44,8 +44,7 @@
             // 
             // btnSpin
             // 
-            this.btnSpin.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSpin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSpin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(172)))), ((int)(((byte)(61)))));
             this.btnSpin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSpin.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -109,6 +108,7 @@
             // 
             // picSlot1
             // 
+            this.picSlot1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picSlot1.Location = new System.Drawing.Point(189, 77);
             this.picSlot1.Name = "picSlot1";
             this.picSlot1.Size = new System.Drawing.Size(100, 100);
@@ -118,6 +118,7 @@
             // 
             // picSlot2
             // 
+            this.picSlot2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picSlot2.Location = new System.Drawing.Point(348, 77);
             this.picSlot2.Name = "picSlot2";
             this.picSlot2.Size = new System.Drawing.Size(100, 100);
@@ -127,6 +128,7 @@
             // 
             // picSlot3
             // 
+            this.picSlot3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.picSlot3.Location = new System.Drawing.Point(503, 77);
             this.picSlot3.Name = "picSlot3";
             this.picSlot3.Size = new System.Drawing.Size(100, 100);
@@ -136,8 +138,7 @@
             // 
             // lblResult
             // 
-            this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblResult.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Montserrat", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblResult.Location = new System.Drawing.Point(398, 21);
@@ -160,6 +161,8 @@
             this.Controls.Add(this.lblScoreValue);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.btnSpin);
+            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MinimumSize = new System.Drawing.Size(530, 430);
             this.Name = "Main";
             this.Text = "Slot Game Machine";
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).EndInit();

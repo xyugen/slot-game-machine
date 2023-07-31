@@ -6,8 +6,8 @@ namespace SlotGameMachine
     public partial class Main : Form
     {
         // Fields
-        private Image[] imageArray;
-        private PictureBox[] pictureBoxes;
+        private Image[]? imageArray;
+        private readonly PictureBox[] pictureBoxes;
         private int score = 0;
         private int credit = 100;
 
@@ -117,6 +117,7 @@ namespace SlotGameMachine
                 lblResult.Text = "You don't have enough credits!";
                 CenterLabel(lblResult);
             }
+            Debug.WriteLine(this.ClientSize.Width + " and " + this.ClientSize.Height);
         }
 
         private void CenterLabel(Label label)
