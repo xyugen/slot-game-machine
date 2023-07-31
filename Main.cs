@@ -117,6 +117,7 @@ namespace SlotGameMachine
                 lblResult.Text = "You don't have enough credits!";
                 CenterLabel(lblResult);
             }
+            Debug.WriteLine(this.ClientSize.Width + " and " + this.ClientSize.Height);
         }
 
         private void CenterLabel(Label label)
