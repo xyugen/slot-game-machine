@@ -256,6 +256,12 @@ namespace SlotGameMachine
                 MessageBox.Show("There are no scores yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnShowAuthor(object sender, EventArgs e)
+        {
+            cMessBox authorMessageBox = new();
+            authorMessageBox.ShowDialog("Developer", SystemIcons.Information);
+        }
     }
 
     /// <summary>

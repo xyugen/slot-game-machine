@@ -50,6 +50,7 @@
             this.epName = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblStart = new System.Windows.Forms.Label();
             this.ttHelp = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAttributions = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSlot3)).BeginInit();
@@ -182,11 +183,20 @@
             // 
             this.ttHelp.AutomaticDelay = 300;
             // 
+            // btnAttributions
+            // 
+            resources.ApplyResources(this.btnAttributions, "btnAttributions");
+            this.btnAttributions.Name = "btnAttributions";
+            this.ttHelp.SetToolTip(this.btnAttributions, resources.GetString("btnAttributions.ToolTip"));
+            this.btnAttributions.UseVisualStyleBackColor = true;
+            this.btnAttributions.Click += new System.EventHandler(this.btnShowAuthor);
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.lblStart);
+            this.Controls.Add(this.btnAttributions);
             this.Controls.Add(this.btnShowScores);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblName);
@@ -236,5 +246,6 @@
         private Button btnShowScores;
         private Label lblStart;
         private ToolTip ttHelp;
+        private Button btnAttributions;
     }
 }
